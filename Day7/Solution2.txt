@@ -1,0 +1,23 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+       HashMap<Integer, Integer> hm= new HashMap<>();
+       int count;
+       /*for(int i=0;i<nums.length;i++){
+        if(hm.containsKey(nums[i])){
+            count=hm.get(nums[i])+1;
+        }else{
+            count=1;
+        }
+        hm.put(nums[i], count);
+        */
+        for(int i=0; i<nums.length;i++){
+            hm.put(nums[i], hm.getOrDefault(nums[i],0)+1);
+        }
+        for(int item: hm.keySet()){
+            if(hm.get(item)> nums.length/2){
+                return item;
+            }
+        }
+        return -1;
+    }
+}
