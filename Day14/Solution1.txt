@@ -1,0 +1,16 @@
+class Solution {
+    public boolean isGood(int[] nums) {
+        if(nums.length<2){
+            return false;
+        }
+        int n=nums.length-1;
+        int[]base=new int[n+1];
+        for( int i=1;i<=n-1;i++){
+            base[i-1]=i;
+        }
+        base[n-1]=n;
+        base[n]=n;
+        Arrays.sort(nums);
+        return Arrays.equals(nums,base);
+    }
+}
